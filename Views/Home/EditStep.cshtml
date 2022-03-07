@@ -1,0 +1,38 @@
+@model Step
+<header>
+    <div class="border bg-success p-3">
+        <div class="row">
+            <div class="col text-center">
+                <img src="https://www.learnwithkak.com/wp-content/uploads/2017/12/pq-639x406.jpg" height="200px" alt="psandqs">
+            </div>
+            <div class="d-flex flex-column col justify-content-center">
+                <div>
+                    <a href="/dashboard" class="text-light">Back to Languages | </a>
+                    <a href="/language/@ViewBag.RussianDoll.Objective.LanguageId" class="text-light">| Back to Objectives | </a>
+                    <a href="/objective/@Model.ObjectiveId" class="text-light">| Back to Steps</a>
+                </div>
+                <div>
+                    <h3>Update Step in @ViewBag.RussianDoll.Objective.Name</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="text-center container mt-5">
+    <div class="row container">
+        <div class="col">
+            Instructions:
+            <form action="/update/step/@Model.StepId" method="post">
+            <input asp-for="AStep">
+            <span asp-validation-for="AStep" class="text-danger"></span>
+            <input type="hidden" name="ObjectiveId" value="@Model.ObjectiveId">
+            <input type="submit" value="Submit" class="btn btn-info">
+            </form>
+        </div>
+        <div class="col">
+            <p>Delete Step?</p>
+            <a href="/deleteStep/@Model.StepId" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
